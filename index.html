@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#17388a">
+<title>Little Kitten Club • Peel & Stick</title>
+<style>
+:root{--blue:#17388a;--ink:#1c3655;--yellow:#ffda36;--pink:#fa6d8d;--grid:#d0dae0}*{box-sizing:border-box}
+body{margin:0;color:var(--ink);background:#f6f2ea;font-family:ui-rounded,"Trebuchet MS",system-ui,sans-serif}
+header{background:var(--blue);color:#fff;border-bottom:7px solid var(--yellow)}
+.header{max-width:1350px;margin:auto;display:flex;justify-content:space-between;align-items:center;padding:24px 30px;gap:20px}
+.kicker{font-weight:900;letter-spacing:.18em;font-size:14px}.title{margin:3px 0 0;font-size:clamp(29px,5vw,56px);text-transform:uppercase;letter-spacing:-.06em;line-height:1.05}
+.ticket{background:var(--yellow);color:var(--blue);font-weight:1000;padding:12px 18px;transform:rotate(2deg);border:3px solid white;box-shadow:5px 6px #0a2466;text-align:center}
+.barcode{height:22px;margin:7px 0;background:repeating-linear-gradient(90deg,var(--blue) 0 3px,transparent 3px 5px,var(--blue) 5px 6px,transparent 6px 9px,var(--blue) 9px 11px,transparent 11px 15px)}
+main{max-width:1350px;margin:auto;padding:26px 24px}.intro{display:flex;justify-content:space-between;align-items:center;gap:15px;margin-bottom:23px;flex-wrap:wrap}.intro p{margin:0;line-height:1.55}.status{padding:10px 15px;background:white;border:2px dashed #c6cdd0;border-radius:14px;font-size:13px;font-weight:bold}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:25px}.panel{border:4px solid white;background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 12px 30px #2b44661b}.panel-title{padding:15px 18px;min-height:63px;display:flex;justify-content:space-between;align-items:center;gap:10px}.panel-title h2{margin:0;font-size:19px}.tag{background:#f7e6ad;color:#6a501b;padding:6px 10px;border-radius:25px;font-size:11px;font-weight:900;text-transform:uppercase}
+.sheet{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(4,minmax(0,1fr));aspect-ratio:1;padding:6px;gap:3px;background-color:#e0ebee;background-image:linear-gradient(90deg,var(--grid) 2px,transparent 2px),linear-gradient(var(--grid) 2px,transparent 2px);background-size:34px 34px}
+.cell{min-width:0;display:flex;align-items:center;justify-content:center;border-radius:9px;position:relative}.cell.empty:after{content:"✳";color:#aebdc5;font-size:36px;opacity:.7}
+.sticker{user-select:none;-webkit-user-drag:none;touch-action:none;cursor:grab;transition:transform .13s ease,filter .13s ease;outline:none}.sticker:focus-visible{outline:3px dashed var(--pink);outline-offset:3px}.sheet .sticker{width:100%;height:100%;max-width:108%;max-height:98%;object-fit:contain;filter:drop-shadow(0 2px 2px #293a522b)}.sticker:hover{transform:rotate(-3deg) translateY(-3px);filter:drop-shadow(0 8px 6px #263e5940)}
+.board{position:relative;aspect-ratio:1;min-height:310px;overflow:hidden;background-color:#fff8e9;background-image:radial-gradient(#e8d6bc 1px,transparent 1px);background-size:20px 20px}
+.board:before{content:"MY SCRAPBOOK";position:absolute;right:27px;top:27px;color:#d9b99e;font-size:19px;font-weight:1000;letter-spacing:.1em;transform:rotate(7deg);pointer-events:none}
+.placeholder{position:absolute;top:44%;left:50%;width:75%;transform:translate(-50%,-50%) rotate(-3deg);border:3px dashed #dec7af;border-radius:20px;padding:30px 10px;text-align:center;font-size:21px;color:#bea98e;font-weight:bold;pointer-events:none}.placeholder[hidden]{display:none}.board.drop-hover{box-shadow:inset 0 0 0 5px #78c8ed;background-color:#f2fcff}
+.board-sticker{position:absolute;width:clamp(92px,12vw,158px);height:auto;max-width:none;transform:translate(-50%,-50%) rotate(var(--rotation,0deg));filter:drop-shadow(0 4px 4px #353f532b)}.board-sticker:hover{transform:translate(-50%,-55%) rotate(var(--rotation,0deg)) scale(1.05)}
+.actions{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:13px 17px;border-top:2px solid #eee6d7;font-size:13px;color:#69737d}button{border:0;cursor:pointer;border-radius:25px;background:var(--blue);color:white;font:inherit;font-weight:bold;padding:10px 17px;box-shadow:0 3px #081f58}button:hover{background:#2957ab}
+.ghost{position:fixed;z-index:9999;width:clamp(120px,14vw,173px);height:auto;pointer-events:none;transform:translate(-50%,-58%) rotate(-12deg) scale(1.15);filter:drop-shadow(14px 18px 10px #192c4855);animation:peel .16s ease-out}
+@keyframes peel{from{transform:translate(-50%,-50%) rotate(0deg) scale(.9);filter:drop-shadow(0 2px 2px #192c481b)}to{transform:translate(-50%,-58%) rotate(-12deg) scale(1.15)}}
+footer{text-align:center;color:#87909b;font-size:12px;padding:15px}
+@media(max-width:850px){.layout{grid-template-columns:1fr}.header{padding:19px}.ticket{min-width:130px}.board-sticker{width:clamp(95px,23vw,160px)}main{padding:18px 13px}}
+@media(max-width:440px){.ticket{display:none}.panel-title h2{font-size:16px}.tag{font-size:9px}.sheet{background-size:25px 25px}}
+@media(prefers-reduced-motion:reduce){.sticker,.ghost{animation:none;transition:none}}
+</style>
+</head>
+<body>
+<header><div class="header"><div><div class="kicker">COLORFUL STICKER</div><h1 class="title">Little kitten club ♡</h1></div><div class="ticket">STICKER FUN<div class="barcode"></div><small>PEEL · DRAG · STICK</small></div></div></header>
+<main>
+<div class="intro"><p><b>Make it yours!</b> Peel a kitten from the sheet and stick it in your scrapbook.<br>Drag stickers again to move them, or tap a sticker and then tap your scrapbook.</p><div id="status" class="status" role="status" aria-live="polite">✦ Pick your first sticker</div></div>
+<div class="layout">
+<section class="panel"><div class="panel-title"><h2>🐾 Sticker sheet</h2><span class="tag">Peel here</span></div><div id="sheet" class="sheet" aria-label="Sticker sheet"></div></section>
+<section class="panel"><div class="panel-title"><h2>💌 Your sticker playground</h2><span class="tag">Stick anywhere</span></div><div id="board" class="board" aria-label="Scrapbook canvas"><div class="placeholder" id="placeholder">✧ ♡ ✧<br>Your stickers go here!</div></div><div class="actions"><span id="count">0 stickers placed</span><button id="reset" type="button">↺ Reset stickers</button></div></section>
+</div></main><footer>Made for your kitten • Stickers stay saved in this browser.</footer>
+<script>
+(()=>{
+const items=['hello','sit','wink','box','sleep','fish-hat','surprise','meow','cool','fish-hug','peek','back','belly','grumpy','good-cat','cushion'];
+const key='kitten-sticker-playground-2026';let placed={};
+try{placed=JSON.parse(localStorage.getItem(key)||'{}')||{}}catch{}
+const sheet=document.getElementById('sheet'),board=document.getElementById('board'),status=document.getElementById('status'),count=document.getElementById('count'),placeholder=document.getElementById('placeholder');
+let selected=null,drag=null,z=Math.max(1,...Object.values(placed).map(v=>v.z||1));
+const save=()=>{try{localStorage.setItem(key,JSON.stringify(placed))}catch{}};
+const inside=(el,x,y)=>{const r=el.getBoundingClientRect();return x>=r.left&&x<=r.right&&y>=r.top&&y<=r.bottom};
+function place(name,x,y){const r=board.getBoundingClientRect();placed[name]={x:Math.max(4,Math.min(96,(x-r.left)/r.width*100)),y:Math.max(4,Math.min(96,(y-r.top)/r.height*100)),z:++z};selected=null;save();render();status.textContent='♡ Sticker placed! Drag to move it'}
+function render(){sheet.replaceChildren();
+for(const name of items){const cell=document.createElement('div');cell.className='cell'+(placed[name]?' empty':'');
+if(!placed[name]){const img=document.createElement('img');img.src=name+'.png';img.alt=name.replaceAll('-',' ')+' sticker';img.className='sticker';img.draggable=false;img.tabIndex=0;img.dataset.name=name;img.setAttribute('role','button');img.addEventListener('pointerdown',down);img.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();selected=name;status.textContent='Now tap where to stick it';render()}});cell.append(img)}sheet.append(cell)}
+board.querySelectorAll('.board-sticker').forEach(el=>el.remove());
+for(const name of items){if(!placed[name])continue;const p=placed[name],img=document.createElement('img');img.src=name+'.png';img.alt=name+' sticker';img.className='sticker board-sticker';img.dataset.name=name;img.draggable=false;img.style.left=p.x+'%';img.style.top=p.y+'%';img.style.zIndex=p.z||1;img.style.setProperty('--rotation',((items.indexOf(name)*13)%17-8)+'deg');img.addEventListener('pointerdown',down);board.append(img)}
+const n=Object.keys(placed).length;count.textContent=n+' sticker'+(n===1?'':'s')+' placed';placeholder.hidden=n>0}
+function down(e){if(e.pointerType==='mouse'&&e.button!==0)return;e.preventDefault();e.stopPropagation();if(drag)return;const name=e.currentTarget.dataset.name;drag={name,origin:placed[name]?'board':'sheet',sx:e.clientX,sy:e.clientY,active:false,ghost:null};window.addEventListener('pointermove',move);window.addEventListener('pointerup',up);window.addEventListener('pointercancel',cancel)}
+function move(e){if(!drag)return;if(!drag.active&&Math.hypot(e.clientX-drag.sx,e.clientY-drag.sy)>7){drag.active=true;drag.ghost=document.createElement('img');drag.ghost.src=drag.name+'.png';drag.ghost.className='ghost';document.body.append(drag.ghost);status.textContent='✦ Peel away... drop it on the scrapbook!'}if(drag.active){drag.ghost.style.left=e.clientX+'px';drag.ghost.style.top=e.clientY+'px';board.classList.toggle('drop-hover',inside(board,e.clientX,e.clientY))}}
+function cleanup(){window.removeEventListener('pointermove',move);window.removeEventListener('pointerup',up);window.removeEventListener('pointercancel',cancel);board.classList.remove('drop-hover')}
+function up(e){if(!drag)return;const {name,origin,active,ghost}=drag;if(ghost)ghost.remove();drag=null;cleanup();if(active){if(inside(board,e.clientX,e.clientY))place(name,e.clientX,e.clientY);else if(origin==='board'&&inside(sheet,e.clientX,e.clientY)){delete placed[name];save();render();status.textContent='Sticker returned to sheet'}else status.textContent='Drop on the scrapbook to stick it'}else if(origin==='sheet'){selected=selected===name?null:name;render();status.textContent=selected?'Now tap anywhere on the scrapbook':'✦ Pick a sticker'}}
+function cancel(){if(drag?.ghost)drag.ghost.remove();drag=null;cleanup()}
+board.addEventListener('click',e=>{if(!selected||e.target.closest('.board-sticker'))return;place(selected,e.clientX,e.clientY)});
+document.getElementById('reset').addEventListener('click',()=>{placed={};selected=null;save();render();status.textContent='✦ Fresh sheet! Pick your first sticker'});render();
+})();
+</script></body></html>
